@@ -1,0 +1,55 @@
+# =====================================================
+#  Solar-Grid Charger — .gitignore
+# =====================================================
+
+# ---- Secrets / real credentials ----
+# The committed firmware/config.h has placeholder WiFi credentials.
+# Keep your real one out of git as config.local.h and #include it, or just
+# never commit a config.h that contains the real SSID/PASS.
+**/config.local.h
+**/secrets.h
+.env
+*.env
+
+# ---- Datasets (too large / regenerable) ----
+# Keep a small sample in data/ if you like, but not the full log.
+*.csv
+!**/sample*.csv
+data/
+backend/data/
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# ---- Trained model binaries (regenerable from ml/) ----
+# Remove these lines (or use Git LFS) if you want to version the models.
+*.pkl
+*.joblib
+*.tflite
+*.h5
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- OS / editor cruft ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Arduino build output ----
+firmware/**/build/
+*.hex
+*.elf
